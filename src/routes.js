@@ -15,7 +15,7 @@ const AppNavigator = createStackNavigator(
     Detail,
   },
   {
-    initialRouteName: 'List',
+    initialRouteName: 'Home',
     defaultNavigationOptions: ({ navigation }) => ({
       headerStyle: {
         height: 60,

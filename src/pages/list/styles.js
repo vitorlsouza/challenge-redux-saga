@@ -1,10 +1,11 @@
 import { StyleSheet } from 'react-native';
+import { colors } from '../../styles';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'stretch',
-    backgroundColor: '#ffe207',
+    backgroundColor: colors.primary,
     paddingVertical: 20,
     paddingHorizontal: 20,
   },

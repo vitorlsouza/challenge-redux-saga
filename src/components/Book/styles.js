@@ -1,11 +1,12 @@
 import { StyleSheet } from 'react-native';
+import { metrics } from '../../styles';
 
 const styles = StyleSheet.create({
   bookView: {
     width: 100,
     height: 120,
-    marginVertical: 15,
-    marginRight: 15,
+    marginVertical: metrics.baseMargin,
+    marginRight: metrics.baseMargin,
   },
   book: {
     position: 'absolute',

@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
   bookDetails: {
     flex: 2,
     flexDirection: 'row',
-    backgroundColor: '#ffe207',
+    backgroundColor: colors.primary,
     padding: 20,
   },
 
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     width: 110,
     height: 150,
     marginRight: 30,
-    shadowColor: '#000',
+    shadowColor: colors.black,
     shadowOffset: { width: 2, height: 12 },
     shadowOpacity: 0.2,
     shadowRadius: 15,

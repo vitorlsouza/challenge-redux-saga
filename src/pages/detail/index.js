@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   View, Text, Image, ScrollView, TouchableOpacity,
 } from 'react-native';
@@ -6,6 +7,8 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import StarRating from 'react-native-star-rating';
+
+import noImage from '../../assets/img/notAvail.png';
 
 import styles from './styles';
 
@@ -15,11 +18,15 @@ const Detail = ({ navigation }) => {
     <View style={styles.container}>
       <View style={styles.bookDetails}>
         <View style={styles.imageView}>
-          <Image
-            source={{ uri: book.volumeInfo.imageLinks.thumbnail }}
-            style={styles.image}
-            resizeMode="stretch"
-          />
+          {book.volumeInfo.imageLinks === undefined ? (
+            <Image source={noImage} style={styles.image} resizeMode="stretch" />
+          ) : (
+            <Image
+              source={{ uri: book.volumeInfo.imageLinks.thumbnail }}
+              style={styles.image}
+              resizeMode="stretch"
+            />
+          )}
         </View>
         <View style={styles.bookInformation}>
           <Text style={styles.title}>{book.volumeInfo.title}</Text>
@@ -76,6 +83,10 @@ pages
       </View>
     </View>
   );
+};
+
+Detail.propTypes = {
+  navigation: PropTypes.shape({}).isRequired,
 };
 
 export default Detail;

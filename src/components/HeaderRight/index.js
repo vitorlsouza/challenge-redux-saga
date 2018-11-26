@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { TouchableOpacity } from 'react-native';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -10,10 +11,20 @@ import * as BooksActions from '../../store/actions/books';
 import styles from './styles';
 
 class HeaderRight extends Component {
-  searchBooks = () => {
-    this.props.searchBooksRequest(this.props.queryInput);
+  static propTypes = {
+    queryInput: PropTypes.string.isRequired,
+    searchBooksRequest: PropTypes.func.isRequired,
+    navigation: PropTypes.shape({}).isRequired,
+  };
 
-    this.props.navigation.navigate('List');
+  searchBooks = () => {
+    const { queryInput, searchBooksRequest, navigation } = this.props;
+
+    if (!queryInput.length > 0) {
+      return;
+    }
+    searchBooksRequest(queryInput);
+    navigation.navigate('List');
   };
 
   render() {

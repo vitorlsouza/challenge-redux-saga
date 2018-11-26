@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
   View, FlatList, ActivityIndicator, TouchableOpacity,
 } from 'react-native';
@@ -13,16 +14,23 @@ import Book from '../../components/Book';
 import HeaderLeft from '../../components/HeaderLeft';
 
 class List extends Component {
+  static propTypes = {
+    navigation: PropTypes.shape({}).isRequired,
+    loading: PropTypes.bool.isRequired,
+  };
+
   static navigationOptions = {
     headerLeft: <HeaderLeft />,
   };
 
   async componentDidMount() {
-    await this.props.searchBooksRequest('design books');
+    const { searchBooksRequest } = this.props;
+    await searchBooksRequest('design books');
   }
 
   navigateToDetail = (e, item) => {
-    this.props.navigation.navigate('Detail', { book: item });
+    const { navigation } = this.props;
+    navigation.navigate('Detail', { book: item });
   };
 
   renderListBook = () => (
@@ -41,10 +49,10 @@ class List extends Component {
   );
 
   render() {
-    console.tron.log(this.props.books, this.props.loading);
+    const { loading } = this.props;
     return (
       <View style={styles.container}>
-        {this.props.loading ? (
+        {loading ? (
           <ActivityIndicator size="large" color="#000" style={styles.loading} />
         ) : (
           this.renderListBook()
