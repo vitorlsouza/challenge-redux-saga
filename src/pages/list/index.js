@@ -45,7 +45,7 @@ class List extends Component {
     return (
       <View style={styles.container}>
         {this.props.loading ? (
-          <ActivityIndicator size="large" color="#FFF" style={styles.loading} />
+          <ActivityIndicator size="large" color="#000" style={styles.loading} />
         ) : (
           this.renderListBook()
         )}
