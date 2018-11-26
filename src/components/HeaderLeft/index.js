@@ -1,14 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import { TouchableOpacity } from 'react-native';
 
-import Icon from 'react-native-vector-icons/FontAwesome';
+const HeaderRight = ({ children }) => <TouchableOpacity>{children}</TouchableOpacity>;
 
-import styles from './styles';
-
-const HeaderRight = () => (
-  <TouchableOpacity>
-    <Icon name="bars" size={22} style={styles.icon} />
-  </TouchableOpacity>
-);
+HeaderRight.propTypes = {
+  children: PropTypes.shape({}).isRequired,
+  props: PropTypes.shape({}).isRequired,
+};
 
 export default HeaderRight;

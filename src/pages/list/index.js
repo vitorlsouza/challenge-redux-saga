@@ -6,6 +6,7 @@ import {
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import * as BooksActions from '../../store/actions/books';
 
 import styles from './styles';
@@ -20,7 +21,11 @@ class List extends Component {
   };
 
   static navigationOptions = {
-    headerLeft: <HeaderLeft />,
+    headerLeft: (
+      <HeaderLeft>
+        <Icon name="bars" size={22} style={{ color: 'rgba(0, 0, 0, 0.5)' }} />
+      </HeaderLeft>
+    ),
   };
 
   async componentDidMount() {

@@ -9,10 +9,12 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
     paddingHorizontal: 20,
   },
+
   list: {
     flex: 1,
     alignItems: 'center',
   },
+
   loading: {
     justifyContent: 'center',
     alignItems: 'center',

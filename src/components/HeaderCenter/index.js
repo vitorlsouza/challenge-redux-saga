@@ -11,6 +11,7 @@ import styles from './styles';
 class HeadeCenter extends Component {
   static propTypes = {
     searchInput: PropTypes.func.isRequired,
+    query: PropTypes.string.isRequired,
   };
 
   handleChangeInput = (text) => {
@@ -19,19 +20,25 @@ class HeadeCenter extends Component {
   };
 
   render() {
+    const { query } = this.props;
     return (
       <TextInput
         placeholder="Search Books"
         style={styles.input}
+        value={query}
         onChangeText={this.handleChangeInput}
       />
     );
   }
 }
 
+const mapStateToProps = state => ({
+  query: state.books.query,
+});
+
 const mapDispatchToProps = dispatch => bindActionCreators(BooksActions, dispatch);
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps,
 )(HeadeCenter);
